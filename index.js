@@ -18,17 +18,12 @@ const client = new MongoClient(uri, {
 
 const run = async () => {
   try {
-    // const db = client.db("jobbox");
-    const db = client.db("Paratronics");
+    const db = client.db("jobbox");
+    // const db = client.db("Paratronics");
     const userCollection = db.collection("user");
     const jobCollection = db.collection("job");
-    const data = db.collection("products");
-    app.get("/inventory", async (req, res) => {
-      const query = {};
-      const cursor = data.find(query);
-      products = await cursor.toArray();
-      res.send(products);
-    });
+    // const data = db.collection("products");
+
     app.post("/user", async (req, res) => {
       const user = req.body;
 
